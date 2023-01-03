@@ -1,6 +1,6 @@
 @extends('_template')
 
-@section('title', 'Isi Formulir')
+@section('title', 'Pendaftaran Berhasil')
 @section('content')
 <div class="row my-5 justify-content-center">
     <div class="col-lg-5 my-auto d-flex">
@@ -48,6 +48,7 @@
                           </tr>
                         </tbody>
                       </table>
+                      <div class="alert alert-success"><b>INFO!</b> Anda telah berhasil mendaftar sebagai partisipan/peserta. Silahkan simpan bukti pendaftaran ini dengan melakukan screenshoot.</div>
                     </div>
                   </div>
               </div>
