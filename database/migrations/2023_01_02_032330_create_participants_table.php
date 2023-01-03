@@ -20,7 +20,8 @@ return new class extends Migration
             $table->enum('as', ['ketua', 'sekretaris', 'anggota']);
             $table->string('photo')->nullable();
             $table->enum('banom', ['ipnu', 'ippnu']);
-            $table->foreignId('delegation_origin_id')->constrained();
+            $table->enum('delegasi_type', ['pk', 'pr']);
+            $table->string('delegasi');
             $table->softDeletes();
             $table->timestamps();
         });

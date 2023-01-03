@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\DaftarController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+
+Route::post('daftar', [DaftarController::class, 'baru'])->name('daftar.baru');
+Route::post('dafar/verification', [DaftarController::class, 'verifikasi'])->name('daftar.verifikasi');
+
+Route::post('simpan', [HomeController::class, 'simpan'])->name('simpan');

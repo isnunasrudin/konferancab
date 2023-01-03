@@ -1,0 +1,17 @@
+
+.logo-utama{
+    max-width: 280px
+}
+
+@media only screen and (max-width: 991.5px) {
+.logo-utama{
+    width: 50px;
+    margin: 0 10px;
+    float: left;
+}
+
+.powerd-by{
+    font-size: 10px;
+    text-align: left;
+}
+}
