@@ -32,7 +32,6 @@ class HomeController extends Controller
 
         $delegation = array();
         preg_match("/^(PR|PK) (IPNU|IPPNU) (.*)$/", $request->get('input-delegasi'), $delegation);
-        // dd($delegation, $request->all());
         
         $baru = new Participant();
         $baru->name = Str::of($request->get('input-nama'))->upper();

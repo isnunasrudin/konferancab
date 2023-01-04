@@ -27,7 +27,7 @@ class DaftarController extends Controller
         $data->token = \mt_rand(11111,99999);
         $data->save();
 
-        Http::asForm()->post('http://127.0.0.1:3000/send', [
+        Http::asForm()->post(config('app.wa_api').'/send', [
             'phone' => $data->phone,
             'message' => "Assalamu'alaikum Wr. Wb.\nKami dari Panitia KONFERANCAB XV PAC IPNU-IPPNU Watulimo.\nKode verifikasi anda adalah: *$data->token*"
         ]);

@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "wa_web": "node bootstrap/wa_web.js"
     },
     "devDependencies": {
         "axios": "^1.1.2",
@@ -10,5 +11,11 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+      "express": "^4.18.2",
+      "qrcode": "^1.5.1",
+      "socket.io": "^4.5.4",
+      "whatsapp-web.js": "^1.18.4"
     }
 }
