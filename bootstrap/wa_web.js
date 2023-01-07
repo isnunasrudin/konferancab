@@ -51,6 +51,27 @@ app.post('/send', (req, res) => {
     res.send({status: true})
 })
 
+app.post('/sendGroup', async (req, res) => {
+    logging("[WA] "+req.body.name+" meminta pesan")
+    let chats = await client.getChats()
+    chats.forEach( async chat => {
+        if(chat.isGroup && chat.name == req.body.name)
+        {
+            client.sendMessage(chat.id._serialized, req.body.message)
+        }
+    })
+    res.send({status: true})
+})
+
+app.get('/test', async (req, res) => {
+    try {
+        let data = await client.sendMessage('6282228403855@c.us', "Ini pesan percobaan")
+        res.send({status: true, message: data})
+    } catch (error) {
+        res.send({status: false, message: error})
+    }
+})
+
 app.get('/test', async (req, res) => {
     try {
         let data = await client.sendMessage('6282228403855@c.us', "Ini pesan percobaan")
@@ -81,7 +102,7 @@ client.on('loading_screen', (percent, message) => {
     logging('[WA] Memuat Pesan', percent);
 });
 
-client.on('ready', () => {
+client.on('ready', async () => {
     logging('[WA] READY');
 });
 

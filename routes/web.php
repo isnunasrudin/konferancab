@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\DaftarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WhatsappMessage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,4 @@ Route::post('daftar', [DaftarController::class, 'baru'])->name('daftar.baru');
 Route::post('dafar/verification', [DaftarController::class, 'verifikasi'])->name('daftar.verifikasi');
 
 Route::post('simpan', [HomeController::class, 'simpan'])->name('simpan');
+Route::get('peserta', [WhatsappMessage::class, 'peserta']);
