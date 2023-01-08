@@ -45,9 +45,6 @@ class WhatsappMessage extends Controller
             'message' => $message
         ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Rekap Peserta Berhasil Dikirim'
-        ]);
+        return redirect()->back();
     }
 }
