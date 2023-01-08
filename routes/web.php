@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WhatsappMessage;
@@ -22,4 +23,10 @@ Route::post('daftar', [DaftarController::class, 'baru'])->name('daftar.baru');
 Route::post('dafar/verification', [DaftarController::class, 'verifikasi'])->name('daftar.verifikasi');
 
 Route::post('simpan', [HomeController::class, 'simpan'])->name('simpan');
-Route::get('peserta', [WhatsappMessage::class, 'peserta']);
+Route::get('peserta', [WhatsappMessage::class, 'peserta'])->name('update_peserta');
+
+Route::get('gambar', [AdminController::class, 'gambar']);
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/peserta', [AdminController::class, 'rekap'])->name('admin.peserta');
+Route::get('/admin/daftar_peserta', [AdminController::class, 'daftar_peserta'])->name('admin.daftar_peserta');

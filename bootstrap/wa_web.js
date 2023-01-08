@@ -3,7 +3,7 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const port = process.env.PORT || 3000;
-const { Client, LocalAuth} = require('whatsapp-web.js');
+const { Client, LocalAuth, MessageMedia} = require('whatsapp-web.js');
 const QRCode = require('qrcode')
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -63,13 +63,21 @@ app.post('/sendGroup', async (req, res) => {
     res.send({status: true})
 })
 
-app.get('/test', async (req, res) => {
-    try {
-        let data = await client.sendMessage('6282228403855@c.us', "Ini pesan percobaan")
-        res.send({status: true, message: data})
-    } catch (error) {
-        res.send({status: false, message: error})
-    }
+app.post('/sendBatch', async (req, res) => {
+    window.btoa()
+    req.body.phones.forEach(data => {
+        logging("[WA] "+data+" meminta pesan")
+        setTimeout(() => client.sendMessage('62'+data+'@c.us', req.body.message), 3000)
+    })
+
+    // let chats = await client.getChats()
+    // chats.forEach( async chat => {
+    //     if(chat.isGroup && chat.name == req.body.name)
+    //     {
+    //         client.sendMessage(chat.id._serialized, req.body.message)
+    //     }
+    // })
+    res.send({status: true})
 })
 
 app.get('/test', async (req, res) => {
